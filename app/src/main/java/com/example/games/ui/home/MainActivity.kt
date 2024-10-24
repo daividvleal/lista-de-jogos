@@ -1,15 +1,15 @@
-package com.example.login_cadastro.ui.home
+package com.example.games.ui.home
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.login_cadastro.R
-import com.example.login_cadastro.databinding.ActivityMainBinding
-import com.example.login_cadastro.util.Sessao
+import com.example.games.R
+import com.example.games.databinding.ActivityMainBinding
+import com.example.games.util.Sessao
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +27,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.rvGames.adapter = GameAdapter(Sessao.games, layoutInflater = layoutInflater)
-        binding.rvGames.layoutManager = GridLayoutManager(this, 2, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvGames.layoutManager = LinearLayoutManager(this)
+
+        FirebaseAuth.getInstance().signOut()
 
     }
 }

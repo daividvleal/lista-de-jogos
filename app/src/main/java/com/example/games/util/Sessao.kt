@@ -1,8 +1,8 @@
-package com.example.login_cadastro.util
+package com.example.games.util
 
-import com.example.login_cadastro.model.Game
-import com.example.login_cadastro.model.Person
-import com.example.login_cadastro.model.User
+import com.example.games.model.Game
+import com.example.games.model.Person
+import com.example.games.model.User
 
 object Sessao {
 

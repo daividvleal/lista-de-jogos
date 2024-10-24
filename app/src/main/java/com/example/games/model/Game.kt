@@ -1,4 +1,4 @@
-package com.example.login_cadastro.model
+package com.example.games.model
 
 data class Game(
     val name: String,

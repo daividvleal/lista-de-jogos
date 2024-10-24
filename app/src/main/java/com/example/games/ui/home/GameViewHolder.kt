@@ -1,8 +1,8 @@
-package com.example.login_cadastro.ui.home
+package com.example.games.ui.home
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.login_cadastro.databinding.ItemGameBinding
-import com.example.login_cadastro.model.Game
+import com.example.games.databinding.ItemGameBinding
+import com.example.games.model.Game
 
 class GameViewHolder(val binding: ItemGameBinding): RecyclerView.ViewHolder(binding.root) {
 

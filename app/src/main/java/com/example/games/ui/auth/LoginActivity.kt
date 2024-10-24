@@ -1,4 +1,4 @@
-package com.example.login_cadastro.ui.auth
+package com.example.games.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,15 +7,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.login_cadastro.ui.home.MainActivity
-import com.example.login_cadastro.R
-import com.example.login_cadastro.databinding.ActivityLoginBinding
-import com.example.login_cadastro.model.Person
-import com.example.login_cadastro.util.Sessao
+import com.example.games.ui.home.MainActivity
+import com.example.games.R
+import com.example.games.databinding.ActivityLoginBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private var auth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
         setUpView()
+        auth = FirebaseAuth.getInstance()
     }
 
 
@@ -35,25 +36,15 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val pwd = binding.edtPwd.text.toString()
-            var exist = false
-            var peopleVerify: Person? = null
-            Sessao.people.forEach { people ->
-               if (people.user.email == email) {
-                   peopleVerify = people
-                   exist = true
-               }
-            }
-            if (exist) {
-                if (peopleVerify?.user?.pwd == pwd) {
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                    startActivity(intent)
-                    Sessao.loged = peopleVerify
-                    finish()
-                } else {
-                    Toast.makeText(this@LoginActivity, getString(R.string.login_error), Toast.LENGTH_SHORT).show()
-                }
-            } else {
+            auth?.signInWithEmailAndPassword(
+                email,
+                pwd
+            )?.addOnFailureListener {
                 Toast.makeText(this@LoginActivity, getString(R.string.login_error), Toast.LENGTH_SHORT).show()
+            }?.addOnSuccessListener {
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
 

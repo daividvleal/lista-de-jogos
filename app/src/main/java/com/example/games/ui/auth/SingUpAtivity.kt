@@ -1,4 +1,4 @@
-package com.example.login_cadastro.ui.auth
+package com.example.games.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,12 +6,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.login_cadastro.ui.home.MainActivity
-import com.example.login_cadastro.R
-import com.example.login_cadastro.databinding.ActivitySingUpAtivityBinding
-import com.example.login_cadastro.model.Person
-import com.example.login_cadastro.model.User
-import com.example.login_cadastro.util.Sessao
+import com.example.games.ui.home.MainActivity
+import com.example.games.R
+import com.example.games.databinding.ActivitySingUpAtivityBinding
+import com.example.games.model.Person
+import com.example.games.model.User
+import com.example.games.util.Sessao
 
 class SingUpAtivity : AppCompatActivity() {
 

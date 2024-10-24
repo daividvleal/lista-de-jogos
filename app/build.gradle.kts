@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.login_cadastro"
+    namespace = "com.example.games"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.login_cadastro"
+        applicationId = "com.example.games"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

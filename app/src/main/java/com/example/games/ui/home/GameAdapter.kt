@@ -1,10 +1,10 @@
-package com.example.login_cadastro.ui.home
+package com.example.games.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.login_cadastro.databinding.ItemGameBinding
-import com.example.login_cadastro.model.Game
+import com.example.games.databinding.ItemGameBinding
+import com.example.games.model.Game
 
 class GameAdapter(
     private val games: List<Game>,

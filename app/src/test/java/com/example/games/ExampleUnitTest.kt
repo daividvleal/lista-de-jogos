@@ -1,4 +1,4 @@
-package com.example.login_cadastro
+package com.example.games
 
 import org.junit.Test
 
