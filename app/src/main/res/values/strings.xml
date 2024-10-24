@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">login_cadastro</string>
+    <string name="welcome_message">Welcome to my application!</string>
+    <string name="email">E-mail: </string>
+    <string name="pwd">Password: </string>
+    <string name="login">Login</string>
+    <string name="login_error">E-mail or Password Invalid.</string>
+</resources>
