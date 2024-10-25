@@ -36,15 +36,20 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val pwd = binding.edtPwd.text.toString()
-            auth?.signInWithEmailAndPassword(
-                email,
-                pwd
-            )?.addOnFailureListener {
+
+            if(email.isEmpty() || pwd.isEmpty()) {
                 Toast.makeText(this@LoginActivity, getString(R.string.login_error), Toast.LENGTH_SHORT).show()
-            }?.addOnSuccessListener {
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+            }else {
+                auth?.signInWithEmailAndPassword(
+                    email,
+                    pwd
+                )?.addOnFailureListener {
+                    Toast.makeText(this@LoginActivity, getString(R.string.login_error), Toast.LENGTH_SHORT).show()
+                }?.addOnSuccessListener {
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
             }
         }
 

@@ -6,21 +6,6 @@ import com.example.games.model.User
 
 object Sessao {
 
-    var loged: Person? = null
-
-    val people = mutableListOf(
-        Person(User("email1@example.com", "pwd1"), "Name1", "123-456-7890", "Hobby1"),
-        Person(User("email2@example.com", "pwd2"), "Name2", "987-654-3210", "Hobby2"),
-        Person(User("email3@example.com", "pwd3"), "Name3", "555-123-4567", "Hobby3"),
-        Person(User("email4@example.com", "pwd4"), "Name4", "111-222-3333", "Hobby4"),
-        Person(User("email5@example.com", "pwd5"), "Name5", "444-555-6666", "Hobby5"),
-        Person(User("email6@example.com", "pwd6"), "Name6", "777-888-9999", "Hobby6"),
-        Person(User("email7@example.com", "pwd7"), "Name7", "222-333-4444", "Hobby7"),
-        Person(User("email8@example.com", "pwd8"), "Name8", "888-999-0000", "Hobby8"),
-        Person(User("email9@example.com", "pwd9"), "Name9", "333-444-5555", "Hobby9"),
-        Person(User("email10@example.com", "pwd10"), "Name10", "999-000-1111", "Hobby10")
-    )
-
     val games = listOf(
         Game("Super Mario Odyssey", 2017, "Nintendo Switch", "Platformer", false, false),
         Game("The Legend of Zelda: Breath of the Wild", 2017, "Nintendo Switch", "Action-adventure", false, false),

@@ -2,6 +2,7 @@ package com.example.games.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,10 +13,12 @@ import com.example.games.databinding.ActivitySingUpAtivityBinding
 import com.example.games.model.Person
 import com.example.games.model.User
 import com.example.games.util.Sessao
+import com.google.firebase.auth.FirebaseAuth
 
 class SingUpAtivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySingUpAtivityBinding
+    private var auth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,7 @@ class SingUpAtivity : AppCompatActivity() {
             insets
         }
         setUpView()
+        auth = FirebaseAuth.getInstance()
     }
 
 
@@ -97,17 +101,22 @@ class SingUpAtivity : AppCompatActivity() {
             return
         }
 
-
-
         if (pwd != confirmPwd) {
             binding.confirmPasswordEdittext.error = "Passwords do not match"
             return
         }
 
         val person = Person(User(email, pwd), name, phone, hobby)
-        Sessao.people.add(person)
-        Sessao.loged = person
-        goToMainActivity()
+
+        auth?.createUserWithEmailAndPassword(
+            person.user.email,
+            person.user.pwd
+        )?.addOnFailureListener {
+            Toast.makeText(this@SingUpAtivity, "Falha na criação do seu usuário! Tente novamente por favor!", Toast.LENGTH_SHORT).show()
+        }?.addOnSuccessListener {
+            goToMainActivity()
+        }
+
     }
 
     private fun goToMainActivity() {
