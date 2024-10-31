@@ -7,18 +7,19 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.games.ui.home.MainActivity
 import com.example.games.R
 import com.example.games.databinding.ActivitySingUpAtivityBinding
 import com.example.games.model.Person
-import com.example.games.model.User
-import com.example.games.util.Sessao
+import com.example.games.ui.home.MainActivity
+import com.example.games.util.USERS
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SingUpAtivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySingUpAtivityBinding
     private var auth: FirebaseAuth? = null
+    private var firestore: FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,16 +33,17 @@ class SingUpAtivity : AppCompatActivity() {
         }
         setUpView()
         auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
     }
 
 
-    private fun setUpView(){
+    private fun setUpView() {
         binding.registerButton.setOnClickListener {
             validateFieldsAndRegister()
         }
     }
 
-    private fun validateFieldsAndRegister(){
+    private fun validateFieldsAndRegister() {
         val name = binding.nameEdittext.text.toString()
         val phone = binding.phoneEdittext.text.toString()
         val hobby = binding.hobbyEdittext.text.toString()
@@ -106,15 +108,29 @@ class SingUpAtivity : AppCompatActivity() {
             return
         }
 
-        val person = Person(User(email, pwd), name, phone, hobby)
+        val person = Person(name, phone, hobby, email)
 
         auth?.createUserWithEmailAndPassword(
-            person.user.email,
-            person.user.pwd
+            person.email,
+            pwd
         )?.addOnFailureListener {
-            Toast.makeText(this@SingUpAtivity, "Falha na criação do seu usuário! Tente novamente por favor!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this@SingUpAtivity,
+                "Falha na criação do seu usuário! Tente novamente por favor!",
+                Toast.LENGTH_SHORT
+            ).show()
         }?.addOnSuccessListener {
-            goToMainActivity()
+            val user = auth?.currentUser
+            person.uId = user?.uid
+            firestore?.collection(USERS)?.document(person.uId!!)?.set(person)?.addOnSuccessListener {
+                goToMainActivity()
+            }?.addOnFailureListener {
+                Toast.makeText(
+                    this@SingUpAtivity,
+                    "Falha na criação do seu usuário! Tente novamente por favor!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
     }

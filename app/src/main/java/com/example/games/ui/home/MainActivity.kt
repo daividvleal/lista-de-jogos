@@ -30,6 +30,5 @@ class MainActivity : AppCompatActivity() {
         binding.rvGames.layoutManager = LinearLayoutManager(this)
 
         FirebaseAuth.getInstance().signOut()
-
     }
 }

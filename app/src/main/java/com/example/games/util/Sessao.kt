@@ -1,8 +1,6 @@
 package com.example.games.util
 
 import com.example.games.model.Game
-import com.example.games.model.Person
-import com.example.games.model.User
 
 object Sessao {
 
