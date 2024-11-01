@@ -111,7 +111,7 @@ class SingUpAtivity : AppCompatActivity() {
         val person = Person(name, phone, hobby, email)
 
         auth?.createUserWithEmailAndPassword(
-            person.email,
+            person.email!!,
             pwd
         )?.addOnFailureListener {
             Toast.makeText(

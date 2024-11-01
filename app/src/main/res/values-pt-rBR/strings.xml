@@ -3,6 +3,9 @@
     <string name="app_name">login_cadastro</string>
     <string name="welcome_message">Bem-vindo à nossa aplicação!</string>
     <string name="email">E-mail: </string>
+    <string name="name">Nome: </string>
+    <string name="phone">Cel: </string>
+    <string name="hobby">Hobbie: </string>
     <string name="pwd">Senha: </string>
     <string name="login">Login</string>
     <string name="login_error">E-mail e/ou Senha Inválido(s).</string>
