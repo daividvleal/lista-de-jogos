@@ -9,4 +9,5 @@
     <string name="pwd">Senha: </string>
     <string name="login">Login</string>
     <string name="login_error">E-mail e/ou Senha Inválido(s).</string>
+    <string name="load_user_info_error_message">Falha ao carregar as informações do usuário!</string>
 </resources>

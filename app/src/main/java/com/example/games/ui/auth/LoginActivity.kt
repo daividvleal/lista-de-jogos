@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.games.ui.home.MainActivity
+import com.example.games.ui.home.HomeActivity
 import com.example.games.R
 import com.example.games.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -16,6 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private var auth: FirebaseAuth? = null
+    private val viewModel = AuthViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,21 +37,18 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val pwd = binding.edtPwd.text.toString()
-
-            if(email.isEmpty() || pwd.isEmpty()) {
-                Toast.makeText(this@LoginActivity, getString(R.string.login_error), Toast.LENGTH_SHORT).show()
-            }else {
-                auth?.signInWithEmailAndPassword(
-                    email,
-                    pwd
-                )?.addOnFailureListener {
-                    Toast.makeText(this@LoginActivity, getString(R.string.login_error), Toast.LENGTH_SHORT).show()
-                }?.addOnSuccessListener {
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            viewModel.login(
+                email,
+                pwd,
+                onSuccess = {
+                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                     startActivity(intent)
                     finish()
+                },
+                onFailure = {
+                    Toast.makeText(this@LoginActivity, getString(R.string.login_error), Toast.LENGTH_SHORT).show()
                 }
-            }
+            )
         }
 
         binding.singUp.setOnClickListener {

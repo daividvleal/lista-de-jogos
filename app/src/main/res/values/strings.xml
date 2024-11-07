@@ -8,4 +8,5 @@
     <string name="pwd">Password: </string>
     <string name="login">Login</string>
     <string name="login_error">E-mail or Password Invalid.</string>
+    <string name="load_user_info_error_message">Error loading user Info!</string>
 </resources>
