@@ -1,10 +1,14 @@
 package com.example.games.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Game(
-    val name: String,
-    val year: Int,
-    val platform: String,
-    val genre: String,
-    val multiplayer: Boolean,
-    val online: Boolean
-)
+    val name: String? = null,
+    val year: Int? = null,
+    val platform: String? = null,
+    val genre: String? = null,
+    val multiplayer: Boolean? = null,
+    val online: Boolean? = null
+): Parcelable

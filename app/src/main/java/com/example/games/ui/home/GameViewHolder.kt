@@ -12,7 +12,7 @@ class GameViewHolder(val binding: ItemGameBinding): RecyclerView.ViewHolder(bind
         binding.txtYear.text = game.year.toString()
         binding.txtGenre.text = game.genre
 
-        binding.cbMultiplayed.isChecked = game.multiplayer
-        binding.cbOnline.isChecked = game.online
+        binding.cbMultiplayed.isChecked = game.multiplayer ?: false
+        binding.cbOnline.isChecked = game.online ?: false
     }
 }
