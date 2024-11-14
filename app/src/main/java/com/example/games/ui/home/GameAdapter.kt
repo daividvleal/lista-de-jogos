@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.games.databinding.ItemGameBinding
-import com.example.games.model.Game
+import com.example.games.domain.model.Game
 
 class GameAdapter(
     private val games: List<Game>,

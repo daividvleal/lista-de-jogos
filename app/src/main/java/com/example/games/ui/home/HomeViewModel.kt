@@ -2,8 +2,8 @@ package com.example.games.ui.home
 
 import androidx.lifecycle.ViewModel
 import com.example.games.R
-import com.example.games.model.Game
-import com.example.games.model.Person
+import com.example.games.domain.model.Game
+import com.example.games.domain.model.Person
 import com.example.games.util.GAMES
 import com.example.games.util.USERS
 import com.google.firebase.auth.FirebaseAuth

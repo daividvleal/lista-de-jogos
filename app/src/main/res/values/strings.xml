@@ -10,4 +10,5 @@
     <string name="login_error">E-mail or Password Invalid.</string>
     <string name="load_user_info_error_message">Error loading user Info!</string>
     <string name="load_games_error_message">Error loading games!</string>
+    <string name="error_get_houses">Erro ao carregar a lista de casas!</string>
 </resources>

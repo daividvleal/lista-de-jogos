@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.games.R
 import com.example.games.databinding.ActivitySingUpAtivityBinding
-import com.example.games.model.Person
+import com.example.games.domain.model.Person
 import com.example.games.ui.home.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

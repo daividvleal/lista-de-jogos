@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.games.databinding.ActivityMainBinding
-import com.example.games.model.Game
+import com.example.games.domain.model.Game
 
 class HomeActivity : AppCompatActivity() {
 

@@ -12,6 +12,7 @@ constraintlayout = "2.1.4"
 firebase="4.4.1"
 firebaseBom="32.3.1"
 lifecycle_version = "2.8.7"
+retrofit="2.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,6 +28,8 @@ firebase-auth = {group = "com.google.firebase", name = "firebase-auth"}
 firebase-firestore = {group = "com.google.firebase", name = "firebase-firestore"}
 lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle_version" }
 lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle_version" }
+squareup-retrofit2-retrofit = {group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
+squareup-retrofit2-converter-gson = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

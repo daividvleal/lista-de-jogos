@@ -2,7 +2,7 @@ package com.example.games.ui.home
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.games.databinding.ItemGameBinding
-import com.example.games.model.Game
+import com.example.games.domain.model.Game
 
 class GameViewHolder(val binding: ItemGameBinding): RecyclerView.ViewHolder(binding.root) {
 
